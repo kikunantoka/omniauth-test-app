@@ -3,9 +3,10 @@ ruby '2.0.0'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.0.5'
-# gem 'omniauth-twitter'
-# gem 'twitter'
-# gem 'figaro'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'twitter'
+gem 'figaro'
 
 gem 'sass-rails', '4.0.2'
 gem 'uglifier', '2.1.1'
