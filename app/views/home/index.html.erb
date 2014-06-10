@@ -1,0 +1,13 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<% if current_user %>
+  <%= "#{current_user.uid} #{current_user.name}" %> <%= link_to 'ログアウト', logout_path %>
+<% else %>
+  <%= link_to 'ログイン', '/auth/twitter' %>
+<% end %>
+
+<%= flash[:notice] %>
+
+
+<%= link_to 'tweet', tweet_path %>
