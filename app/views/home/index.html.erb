@@ -4,7 +4,8 @@
 <% if current_user %>
   <%= "#{current_user.uid} #{current_user.name}" %> <%= link_to 'ログアウト', logout_path %>
 <% else %>
-  <%= link_to 'ログイン', '/auth/twitter' %>
+  <%= link_to 'Twitterでログイン', '/auth/twitter' %>
+  <%= link_to 'Zaimでログイン', '/auth/zaim' %>
 <% end %>
 
 <%= flash[:notice] %>
