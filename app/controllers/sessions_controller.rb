@@ -14,26 +14,26 @@ class SessionsController < ApplicationController
   end
 
   def zaim_callback
-    @zaim = OAuth::Consumer.new(ENV['ZAIM_KEY'], ENV['ZAIM_SECRET'],
-                                request_token_path: ENV['ZAIM_REQUEST_TOKEN_URL'],
-                                authorize_path: ENV['ZAIM_AUTHORIZE_URL'],
-                                access_token_path: ENV['ZAIM_ACCESS_TOKEN_URL'])
-    request_token = OAuth::RequestToken.new(
-    @zaim,
-    session[:oauth_token],
-    session[:oauth_token_secret])
+    # @zaim = OAuth::Consumer.new(ENV['ZAIM_KEY'], ENV['ZAIM_SECRET'],
+    #                             request_token_path: ENV['ZAIM_REQUEST_TOKEN_URL'],
+    #                             authorize_path: ENV['ZAIM_AUTHORIZE_URL'],
+    #                             access_token_path: ENV['ZAIM_ACCESS_TOKEN_URL'])
+    # request_token = OAuth::RequestToken.new(
+    # @zaim,
+    # session[:oauth_token],
+    # session[:oauth_token_secret])
 
-    @access_token = request_token.get_access_token(
-      {},:oauth_verifier => params[:oauth_verifier])
+    # @access_token = request_token.get_access_token(
+    #   {},:oauth_verifier => params[:oauth_verifier])
 
-    res = @access_token.get('https://api.zaim.net/v2/home/user/verify')
-    json = JSON.parse(res.body)
-    result = JSON.pretty_generate(json)
-    session[:name] = json['me']['name']
-    session[:oauth_token] = session[:oauth_token_secret] = nil
+    # res = @access_token.get('https://api.zaim.net/v2/home/user/verify')
+    # json = JSON.parse(res.body)
+    # result = JSON.pretty_generate(json)
+    # session[:name] = json['me']['name']
+    # session[:oauth_token] = session[:oauth_token_secret] = nil
 
-    render :text=>result
-    # redirect_to root_path
+    # render :text=>result
+    redirect_to root_path
   end
 
   def callback
