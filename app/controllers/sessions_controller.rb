@@ -26,6 +26,9 @@ class SessionsController < ApplicationController
     @access_token = request_token.get_access_token(
       {},:oauth_verifier => params[:oauth_verifier])
 
+    res = @access_token.get('https://api.zaim.net/v2/home/user/verify')
+    json = JSON.parse(res.body)
+    session[:name] = json['me']['name']
     session[:oauth_token] = session[:oauth_token_secret] = nil
 
     redirect_to root_path
