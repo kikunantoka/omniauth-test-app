@@ -28,10 +28,12 @@ class SessionsController < ApplicationController
 
     res = @access_token.get('https://api.zaim.net/v2/home/user/verify')
     json = JSON.parse(res.body)
+    result = JSON.pretty_generate(json)
     session[:name] = json['me']['name']
     session[:oauth_token] = session[:oauth_token_secret] = nil
 
-    redirect_to root_path
+    render :text=>result
+    # redirect_to root_path
   end
 
   def callback
