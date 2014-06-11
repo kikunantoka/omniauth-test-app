@@ -5,6 +5,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.5'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-moves',  github: 'nickelser/omniauth-moves'
 gem 'twitter'
 gem 'figaro'
 
