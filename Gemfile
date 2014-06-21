@@ -8,6 +8,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-moves',  github: 'nickelser/omniauth-moves'
 gem 'twitter'
 gem 'figaro'
+gem 'foursquare2'
 
 gem 'sass-rails', '4.0.2'
 gem 'uglifier', '2.1.1'
